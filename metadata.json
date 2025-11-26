@@ -1,0 +1,7 @@
+{
+  "name": "FCS AI Doc Intel",
+  "description": "Internal Document Intelligence tool for FirstCarbon Solutions. Upload PDFs and extract insights instantly.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
