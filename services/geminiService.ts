@@ -1,24 +1,16 @@
-
 import { GoogleGenAI, GenerateContentResponse, Chat, Modality } from "@google/genai";
 import { MODEL_NAME, TTS_MODEL_NAME, SYSTEM_INSTRUCTION } from "../constants";
 
-// Initialize the API client using either Node-style or Vite-style env vars
+// Initialize the API client using process.env.API_KEY
 const getClient = () => {
-  // Works in AI Studio / Node environments
-  const nodeKey = process.env.API_KEY as string | undefined;
-
-  // Works in Vite / Netlify browser builds
-  const browserKey = (import.meta as any).env?.VITE_GEMINI_API_KEY as string | undefined;
-
-  const apiKey = nodeKey || browserKey;
+  const apiKey = process.env.API_KEY as string;
 
   if (!apiKey) {
-    console.error("❌ Missing API key. Set API_KEY (server) or VITE_GEMINI_API_KEY (client).");
+    console.error("❌ Missing API_KEY environment variable");
   }
 
-  return new GoogleGenAI({ apiKey: apiKey ?? "" });
+  return new GoogleGenAI({ apiKey });
 };
-
 
 
 /**

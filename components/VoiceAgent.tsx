@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Chat, GenerateContentResponse } from "@google/genai";
 import { generateSpeechFromText } from '../services/geminiService';
@@ -112,7 +111,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ chat, onClose }) => {
     try {
       // 1. Get Text Response from Gemini
       const response = await chat.sendMessage({ message: text });
-      const responseText = response.response.text();
+      const responseText = response.text || "";
       setAiResponseText(responseText);
 
       // 2. Synthesize Speech (TTS)

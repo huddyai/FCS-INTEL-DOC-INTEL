@@ -25,4 +25,6 @@ export interface DocumentStats {
   pageCount?: number; // Estimated
   summary?: string;
   keyTopics?: string[];
+  sentiment?: string;
+  suggestedQuestions?: string[];
 }
