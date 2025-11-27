@@ -1,17 +1,16 @@
 import { GoogleGenAI, GenerateContentResponse, Chat, Modality } from "@google/genai";
 import { MODEL_NAME, TTS_MODEL_NAME, SYSTEM_INSTRUCTION } from "../constants";
 
-// Initialize the API client using process.env.API_KEY
+// Initialize the API client using Vite-style env var (Netlify / browser)
 const getClient = () => {
-  const apiKey = process.env.API_KEY as string;
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string;
 
   if (!apiKey) {
-    console.error("❌ Missing API_KEY environment variable");
+    console.error("❌ Missing VITE_GEMINI_API_KEY environment variable");
   }
 
   return new GoogleGenAI({ apiKey });
 };
-
 
 /**
  * Initializes a chat session with the document content (text) loaded into the context.
