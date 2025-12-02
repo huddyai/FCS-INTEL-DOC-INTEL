@@ -1,5 +1,5 @@
 
-export const MODEL_NAME = 'gemini-2.5-flash';
+export const MODEL_NAME = 'gemini-2.0-flash-lite';
 export const TTS_MODEL_NAME = 'gemini-2.5-flash-preview-tts';
 
 export const SYSTEM_INSTRUCTION = `
